@@ -33,8 +33,8 @@ data_path = '/Users/paulp/GoogleDrive/projects/CSI_Wx/data/'
 file_name = 'obs-175109-20180909_000000_to_20180915_235959.csv'
 
 df = pd.read_csv(data_path + file_name).drop(['spot_id', 'name', 'lat', 'lon',
-'ground_elevation', 'station_id', 'station_elevation', 'units_wind',
-'units_temp'], axis=1)
+            'ground_elevation', 'station_id', 'station_elevation', 'units_wind',
+            'units_temp'], axis=1)
 
 # convert logger date-time strings to Python date time types:
 df['timestamp_local'] = pd.to_datetime(df['timestamp_local'])
@@ -48,9 +48,9 @@ df.set_index(df['time_utc'], drop=False, inplace=True)
 
 plt.plot(df['time_utc'], df['atemp'], c='red')
 plt.plot(df['time_utc'], df['wtemp'], c='blue')
-plt.xticks(rotation = 45)
+plt.xticks(rotation=45)
 plt.show()
 # this week included a visit from hurricane Florence, which almost certainly
 # explains the seemingly unusual dip in the sound water temps beginning
 # mid-week
-df.corr()
+c = df.corr()
